@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
         public int health = 100;
         public int healthIncrease = 10;
+        public int healthDecrease = -10;
 
         private void OnCollisionEnter(Collision collision)
         {
@@ -15,10 +16,15 @@ public class Health : MonoBehaviour
                 Debug.Log(health);
             }
 
+            if (collision.gameObject.tag == "Enemy")
+            {
+                health -= healthDecrease;
+                Debug.Log(health);
+            }
+
             if (health <= 0)
             {
                 Destroy(gameObject);
-            }   
+            }
         }
-
 }
