@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private float currentHealth = 100f;
+        public int health = 100;
+        public int healthIncrease = 10;
 
-    public void IncreaseHealth(float healthIncrease)
-    {
-        currentHealth += healthIncrease;
-        Debug.LogError(currentHealth);
-    }
-
-    public void TakeDamage(float damageTaken)
-    {
-        currentHealth -= damageTaken;
-        Debug.LogError(currentHealth);
-        if (currentHealth <= 0)
+        private void OnCollisionEnter(Collision collision)
         {
-            Destroy(gameObject);
+            if (collision.gameObject.tag == "LightHealth" )
+            {
+                health += healthIncrease;
+                Debug.Log(health);
+            }
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }   
         }
-    }
+
 }
