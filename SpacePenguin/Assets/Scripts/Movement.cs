@@ -17,8 +17,8 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetAxis("Vertical") != 0)
         {
-            Vector3 direction = transform.right * Input.GetAxis("Vertical");
-            transform.Translate(direction * speed * Time.deltaTime);
+            Vector3 direction = transform.forward * Input.GetAxis("Vertical");
+            transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
 
         if (Input.GetAxis("Horizontal") != 0)
