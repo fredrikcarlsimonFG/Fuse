@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class MovementPlayerTwo : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
     [SerializeField] private float rotationSpeed = 20f;
@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
             transform.Rotate(direction * rotationSpeed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             playerRigidbody.AddForce(Vector3.up * jumpForce);
         }

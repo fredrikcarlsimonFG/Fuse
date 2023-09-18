@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class HealthPlayerOne : MonoBehaviour
 {
-        public int health = 100;
+        public int healthPlayerOne = 100;
         public int healthIncrease = 10;
         public int healthDecrease = -10;
 
@@ -12,17 +12,17 @@ public class Health : MonoBehaviour
         {
             if (collision.gameObject.tag == "LightHealth" )
             {
-                health += healthIncrease;
-                Debug.Log(health);
+                healthPlayerOne += healthIncrease;
+                Debug.Log(healthPlayerOne);
             }
 
             if (collision.gameObject.tag == "Enemy")
             {
-                health -= healthDecrease;
-                Debug.Log(health);
+                healthPlayerOne -= healthDecrease;
+                Debug.Log("Health P1: " + healthPlayerOne);
             }
 
-            if (health <= 0)
+            if (healthPlayerOne <= 0)
             {
                 Destroy(gameObject);
             }
